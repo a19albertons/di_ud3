@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default sizes for phones -->
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="bottom_nav_height">56dp</dimen>
+
+    <!-- Section heights (scaled from sw600dp primary sizes: 75dp and 100dp) -->
+    <dimen name="total_section_height">56dp</dimen>
+    <dimen name="dices_section_height">75dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_total">32sp</dimen>
+
+    <dimen name="space_images">10dp</dimen>
+    <dimen name="image_dice_height">40dp</dimen>
+</resources>
