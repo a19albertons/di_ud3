@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
@@ -30,5 +33,21 @@ class MainActivity : AppCompatActivity() {
         }
         val smallestWidth = resources.configuration.smallestScreenWidthDp
         Log.d("DeviceMetrics", "Mi Smallest Width (sw) es: ${smallestWidth}dp")
+
+        // Boton historial
+        val botonHistorial= findViewById<Button>(R.id.historial_boton)
+        val botonInicio = findViewById<Button>(R.id.inicio_boton)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
+
+        // Logica boton historial
+        botonHistorial.setOnClickListener {
+            val navController = navHostFragment.navController
+            navController.navigate(R.id.historial)
+        }
+        // Logica boton inicio
+        botonInicio.setOnClickListener {
+            val navController = navHostFragment.navController
+            navController.navigate(R.id.inicio)
+        }
     }
 }

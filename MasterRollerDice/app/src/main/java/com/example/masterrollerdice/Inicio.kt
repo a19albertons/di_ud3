@@ -8,9 +8,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 
 class Inicio : Fragment() {
@@ -53,6 +56,8 @@ class Inicio : Fragment() {
         val fotoCentral1= view.findViewById<ImageView>(R.id.foto_central1)
         val fotoCentral2= view.findViewById<ImageView>(R.id.foto_central2)
         val fotoCentral3= view.findViewById<ImageView>(R.id.foto_central3)
+
+
 
 
         // Listener de operacion (sin sistema de guardado)
@@ -195,6 +200,9 @@ class Inicio : Fragment() {
             fotoCentral2.setImageResource(R.drawable.d100_sin_fondo)
             fotoCentral3.setImageResource(R.drawable.d100_sin_fondo)
         }
+
+
+
 
 
         return view
