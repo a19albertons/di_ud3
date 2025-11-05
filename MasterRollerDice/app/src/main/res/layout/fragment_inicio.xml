@@ -32,15 +32,39 @@
         android:background="@color/white">
 
         <LinearLayout
+            android:id="@+id/solo_un_dado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="170dp"
+            android:visibility="invisible"
             >
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="120dp"
+                android:src="@drawable/d4_sin_fondo"
+                android:adjustViewBounds="true"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dos_dado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="170dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:src="@drawable/d4_sin_fondo"
+                android:adjustViewBounds="true"/>
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
                 android:src="@drawable/d4_sin_fondo"
                 android:adjustViewBounds="true"/>
         </LinearLayout>
