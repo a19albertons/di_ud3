@@ -2,43 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-
-    >
+    android:orientation="horizontal">
 
     <EditText
         android:id="@+id/historial_lanzamiento"
         android:layout_width="0dp"
-        android:layout_height="75dp"
+        android:layout_height="@dimen/historial_item_height"
         android:layout_weight="0.33"
-        android:text="[lanzamiento]"
+        android:text="@string/historial_lanzamiento"
         android:textAlignment="center"
-        android:textSize="24dp"
+        android:textSize="@dimen/text_size_historial"
         android:background="@color/white"
         android:textColor="@color/black"
-        />
+        android:hint="@string/historial_lanzamiento"
+        android:inputType="text"
+        android:autofillHints="username" />
 
     <EditText
         android:id="@+id/historial_tipo_dado"
         android:layout_width="0dp"
-        android:layout_height="75dp"
+        android:layout_height="@dimen/historial_item_height"
         android:layout_weight="0.33"
         android:textAlignment="center"
-        android:text="[tipoDado]"
-        android:textSize="24dp"
+        android:text="@string/historial_tipo_dado"
+        android:textSize="@dimen/text_size_historial"
         android:background="@color/white"
         android:textColor="@color/black"
-        />
+        android:hint="@string/historial_tipo_dado"
+        android:inputType="text"
+        android:autofillHints="username" />
+
     <EditText
         android:id="@+id/historial_total"
         android:layout_width="0dp"
-        android:layout_height="75dp"
+        android:layout_height="@dimen/historial_item_height"
         android:layout_weight="0.33"
-        android:text="[total]"
+        android:text="@string/historial_total"
         android:textAlignment="center"
-        android:textSize="24dp"
+        android:textSize="@dimen/text_size_historial"
         android:background="@color/white"
         android:textColor="@color/black"
-        />
+        android:hint="@string/historial_total"
+        android:inputType="text"
+        android:autofillHints="username" />
 
 </LinearLayout>

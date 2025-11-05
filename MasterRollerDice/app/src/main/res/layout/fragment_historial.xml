@@ -9,83 +9,85 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="@dimen/historial_item_height"
         android:orientation="horizontal"
         android:padding="0dp"
-        android:layout_margin="0dp"
-        >
+        android:layout_margin="0dp">
         <EditText
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="@dimen/historial_item_height"
             android:layout_weight="0.33"
-            android:text="Lanzamiento"
+            android:text="@string/historial_lanzamiento"
             android:enabled="false"
             android:background="@color/grey"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:padding="0dp"
             android:layout_margin="0dp"
-            android:textSize="16sp"
-            />
+            android:textSize="@dimen/text_size_historial"
+            android:hint="@string/historial_lanzamiento"
+            android:inputType="text"
+            android:autofillHints="username" />
 
         <EditText
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="@dimen/historial_item_height"
             android:layout_weight="0.33"
             android:enabled="false"
-            android:text="Tipo Dado"
+            android:text="@string/historial_tipo_dado"
             android:background="@color/grey"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:padding="0dp"
             android:layout_margin="0dp"
-            android:textSize="16sp"
-
-            />
+            android:textSize="@dimen/text_size_historial"
+            android:hint="@string/historial_tipo_dado"
+            android:inputType="text"
+            android:autofillHints="username" />
 
         <EditText
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="@dimen/historial_item_height"
             android:layout_weight="0.33"
-            android:text="Total"
+            android:text="@string/historial_total"
             android:enabled="false"
             android:background="@color/grey"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:padding="0dp"
             android:layout_margin="0dp"
-            android:textSize="16sp"
-
-            />
+            android:textSize="@dimen/text_size_historial"
+            android:hint="@string/historial_total"
+            android:inputType="text"
+            android:autofillHints="username" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/hay_contenido_historial"
-        >
-
+        android:background="@color/white"
+        android:id="@+id/hay_contenido_historial">
         <!-- Aquí se agregarán dinámicamente las filas del historial de lanzamientos -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/historial_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:id="@+id/no_hay_contenido_historial"
-        >
+        android:id="@+id/no_hay_contenido_historial">
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vacio"
+            android:text="@string/historial_vacio"
             android:enabled="false"
-            android:textColor="@color/black"/>
-
+            android:textColor="@color/black"
+            android:hint="@string/historial_vacio"
+            android:inputType="text"
+            android:autofillHints="username"/>
     </LinearLayout>
 
 

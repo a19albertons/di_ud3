@@ -13,4 +13,10 @@
     <string name="d12_desc">D12 die</string>
     <string name="d20_desc">D20 die</string>
     <string name="d100_desc">D100 die</string>
+
+    <!-- Historial strings -->
+    <string name="historial_lanzamiento">Lanzamiento</string>
+    <string name="historial_tipo_dado">Tipo de dado</string>
+    <string name="historial_total">Total</string>
+    <string name="historial_vacio">Vacío</string>
 </resources>

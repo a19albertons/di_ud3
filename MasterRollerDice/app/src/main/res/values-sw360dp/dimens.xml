@@ -11,6 +11,7 @@
 
     <!-- Text sizes -->
     <dimen name="text_size_total">28sp</dimen>
+    <dimen name="text_size_historial">16sp</dimen>
 
     <dimen name="space_images">8dp</dimen>
     <dimen name="image_dice_height">36dp</dimen>
@@ -22,4 +23,5 @@
     <dimen name="height_medium">36dp</dimen>
     <dimen name="width_small">20dp</dimen>
     <dimen name="text_size_title">24sp</dimen>
+    <dimen name="historial_item_height">50dp</dimen>
 </resources>
