@@ -152,7 +152,10 @@ class Inicio : Fragment() {
                 }
             }
             val filename = "historial.csv"
-            val dataAEscribir = "num_lineas,${tipo_dados.text},$total\n"
+            // Leer el historial actual para contar lanzamientos
+            val historialList = leerCSV(requireContext())
+            val numLanzamientos = historialList.size + 1 // Siguiente número de lanzamiento
+            val dataAEscribir = "$numLanzamientos,${tipo_dados.text},$total\n"
             try {
                 // Usa openFileOutput para escribir en el almacenamiento interno de la app.
                 // MODE_APPEND es crucial: añade al final en lugar de sobrescribir.
