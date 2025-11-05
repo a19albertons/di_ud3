@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
         android:background="@color/black"
-        app:title="MasterRollerDice"
+        app:title="Master Roller Dice"
         app:titleTextColor="@color/white"
         />
 
@@ -45,7 +45,7 @@
             android:backgroundTint="@color/black"
             android:padding="0dp"
             android:textSize="32sp"
-            android:text="inicio"
+            android:text="Inicio"
             />
         <Button
             android:layout_width="0dp"
@@ -54,7 +54,7 @@
             android:layout_height="match_parent"
             android:padding="0dp"
             android:textSize="32sp"
-            android:text="historial"
+            android:text="Historial"
 
             />
 

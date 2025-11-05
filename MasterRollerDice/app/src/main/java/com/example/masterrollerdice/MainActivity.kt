@@ -1,6 +1,7 @@
 package com.example.masterrollerdice
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -27,5 +28,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val smallestWidth = resources.configuration.smallestScreenWidthDp
+        Log.d("DeviceMetrics", "Mi Smallest Width (sw) es: ${smallestWidth}dp")
     }
 }

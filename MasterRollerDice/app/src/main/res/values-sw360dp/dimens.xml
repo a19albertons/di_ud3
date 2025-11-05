@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Usado por large, medium phone y pequeño -->
+    <!-- Smaller sizes for small-width devices (~320dp width) -->
+    <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="bottom_nav_height">48dp</dimen>
+
+    <!-- Section heights for small devices -->
+    <dimen name="total_section_height">48dp</dimen>
+    <dimen name="dices_section_height">64dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_total">28sp</dimen>
+
+    <dimen name="space_images">8dp</dimen>
+    <dimen name="image_dice_height">36dp</dimen>
+</resources>

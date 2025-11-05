@@ -5,7 +5,7 @@
     <dimen name="bottom_nav_height">56dp</dimen>
 
     <!-- Section heights (scaled from sw600dp primary sizes: 75dp and 100dp) -->
-    <dimen name="total_section_height">56dp</dimen>
+    <dimen name="total_section_height">5600dp</dimen>
     <dimen name="dices_section_height">75dp</dimen>
 
     <!-- Text sizes -->
