@@ -1,5 +1,6 @@
 package com.example.masterrollerdice
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,6 +15,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import java.io.FileOutputStream
+import java.io.OutputStreamWriter
 
 
 class Inicio : Fragment() {
@@ -98,10 +101,9 @@ class Inicio : Fragment() {
             catch (e: NumberFormatException) {
                 num_dados.setText(dadosPorDefecto.toString())
             }
-
+            var total = 0
             when (tipo_dados.text.toString()) {
                 "D4" -> {
-                    var total = 0
                     for (i in 1..num_dados.text.toString().toInt()) {
                         total += (1..4).random()
                     }
@@ -109,7 +111,6 @@ class Inicio : Fragment() {
                 }
 
                 "D6" -> {
-                    var total = 0
                     for (i in 1..num_dados.text.toString().toInt()) {
                         total += (1..6).random()
                     }
@@ -117,35 +118,30 @@ class Inicio : Fragment() {
                 }
 
                 "D8" -> {
-                    var total = 0
                     for (i in 1..num_dados.text.toString().toInt()) {
                         total += (1..8).random()
                     }
                     Total.text = "Total: $total"
                 }
                 "D10" -> {
-                    var total = 0
                     for (i in 1..num_dados.text.toString().toInt()) {
                         total += (1..10).random()
                     }
                     Total.text = "Total: $total"
                 }
                 "D12" -> {
-                    var total = 0
                     for (i in 1..num_dados.text.toString().toInt()) {
                         total += (1..12).random()
                     }
                     Total.text = "Total: $total"
                 }
                 "D20" -> {
-                    var total = 0
                     for (i in 1..num_dados.text.toString().toInt()) {
                         total += (1..20).random()
                     }
                     Total.text = "Total: $total"
                 }
                 "D100" -> {
-                    var total = 0
                     for (i in 1..num_dados.text.toString().toInt()) {
                         total += (1..100).random()
                     }
@@ -154,6 +150,22 @@ class Inicio : Fragment() {
                 else -> {
                     Total.text = "Error"
                 }
+            }
+            val filename = "historial.csv"
+            val dataAEscribir = "num_lineas,${tipo_dados.text},$total\n"
+            try {
+                // Usa openFileOutput para escribir en el almacenamiento interno de la app.
+                // MODE_APPEND es crucial: añade al final en lugar de sobrescribir.
+                val outputStream: FileOutputStream = requireContext().openFileOutput(filename, Context.MODE_APPEND)
+
+                // Escribe la cadena al archivo.
+                OutputStreamWriter(outputStream).use { writer ->
+                    writer.write(dataAEscribir)
+                }
+
+            } catch (e: Exception) {
+                e.printStackTrace()
+                // Manejar el error de escritura (ej. almacenamiento lleno)
             }
         }
 
