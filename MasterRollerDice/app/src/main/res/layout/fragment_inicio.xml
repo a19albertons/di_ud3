@@ -34,7 +34,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="top|center"
+            android:layout_marginTop="150dp"
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -55,6 +57,7 @@
                 android:layout_height="50dp"
                 android:background="@color/grey"
                 android:textColor="@color/white"
+                android:textAlignment="center"
                 android:text="provisional"
                 />
             <Space
@@ -65,6 +68,7 @@
                 android:layout_height="50dp"
                 android:background="@color/grey"
                 android:text="provisional"
+                android:textAlignment="center"
                 android:enabled="false"
                 android:textColor="@color/white"
                 />
@@ -78,6 +82,7 @@
                 android:background="@color/grey"
                 android:textColor="@color/white"
                 android:text="temporal"
+                android:textAlignment="center"
                 android:enabled="false"
                 />
         </LinearLayout>
