@@ -28,12 +28,36 @@
         app:defaultNavHost="true"
         />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <!-- Cuando google tenga decencia en su bottomnavegationview será usado -->
+    <LinearLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_nav_height"
         android:background="@color/black"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/menu_main" />
+        app:menu="@menu/menu_main"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/black"
+            android:padding="0dp"
+            android:textSize="32sp"
+            android:text="inicio"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/black"
+            android:layout_height="match_parent"
+            android:padding="0dp"
+            android:textSize="32sp"
+            android:text="historial"
+
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
