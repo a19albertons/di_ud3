@@ -45,7 +45,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/black"
             android:padding="0dp"
-            android:textSize="32sp"
+            android:textSize="@dimen/text_size_title"
             android:text="Inicio"
             app:cornerRadius="0dp"
             />
@@ -56,7 +56,7 @@
             android:backgroundTint="@color/black"
             android:layout_height="match_parent"
             android:padding="0dp"
-            android:textSize="32sp"
+            android:textSize="@dimen/text_size_title"
             android:text="Historial"
             app:cornerRadius="0dp"
 

@@ -14,4 +14,12 @@
 
     <dimen name="space_images">8dp</dimen>
     <dimen name="image_dice_height">36dp</dimen>
+
+    <!-- Normalización de medidas usadas en layouts -->
+    <dimen name="margin_top_large">120dp</dimen>
+    <dimen name="height_large">80dp</dimen>
+    <dimen name="width_medium">72dp</dimen>
+    <dimen name="height_medium">36dp</dimen>
+    <dimen name="width_small">20dp</dimen>
+    <dimen name="text_size_title">24sp</dimen>
 </resources>

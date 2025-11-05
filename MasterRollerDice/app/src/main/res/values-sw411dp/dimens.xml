@@ -2,7 +2,7 @@
 <resources>
     <!-- Larger sizes for tablets and large-width devices -->
     <dimen name="toolbar_height">75dp</dimen>
-    <dimen name="bottom_nav_height">100dp</dimen>
+    <dimen name="bottom_nav_height">75dp</dimen>
 
     <!-- New section heights for sw600dp -->
     <dimen name="total_section_height">75dp</dimen>
@@ -13,4 +13,12 @@
 
     <dimen name="space_images">10dp</dimen>
     <dimen name="image_dice_height">40dp</dimen>
+
+    <!-- Normalización de medidas usadas en layouts -->
+    <dimen name="margin_top_large">170dp</dimen>
+    <dimen name="height_large">120dp</dimen>
+    <dimen name="width_medium">100dp</dimen>
+    <dimen name="height_medium">50dp</dimen>
+    <dimen name="width_small">30dp</dimen>
+    <dimen name="text_size_title">32sp</dimen>
 </resources>
