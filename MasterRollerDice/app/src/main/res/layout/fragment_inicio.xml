@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Inicio">
 
@@ -24,14 +25,51 @@
             android:textSize="@dimen/text_size_total" />
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
         android:background="@color/white">
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="32.5dp"
+            
+            >
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@color/grey"
+                android:textColor="@color/white"
+                android:text="provisional"
+                />
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="match_parent"/>
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@color/grey"
+                android:text="provisional"
+                android:enabled="false"
+                android:textColor="@color/white"
+                />
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="match_parent"/>
 
-    </LinearLayout>
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@color/grey"
+                android:textColor="@color/white"
+                android:text="temporal"
+                android:enabled="false"
+                />
+        </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
