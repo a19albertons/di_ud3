@@ -37,10 +37,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
             android:layout_marginTop="170dp"
-            android:visibility="invisible"
+            android:visibility="visible"
             >
 
             <ImageView
+                android:id="@+id/foto_central1"
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
                 android:src="@drawable/d4_sin_fondo"
@@ -52,9 +53,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
             android:layout_marginTop="170dp"
+            android:visibility="invisible"
             >
 
             <ImageView
+                android:id="@+id/foto_central2"
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
                 android:src="@drawable/d4_sin_fondo"
@@ -63,6 +66,7 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"/>
             <ImageView
+                android:id="@+id/foto_central3"
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
                 android:src="@drawable/d4_sin_fondo"
@@ -77,21 +81,24 @@
             
             >
             <EditText
+                android:id="@+id/num_dados"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:background="@color/grey"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:text="provisional"
+                android:text=""
+                android:inputType="number"
                 />
             <Space
                 android:layout_width="30dp"
                 android:layout_height="match_parent"/>
             <EditText
+                android:id="@+id/tipo_dados"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:background="@color/grey"
-                android:text="provisional"
+                android:text=""
                 android:textAlignment="center"
                 android:enabled="false"
                 android:textColor="@color/white"
@@ -101,13 +108,15 @@
                 android:layout_height="match_parent"/>
 
             <EditText
+                android:id="@+id/lanzar_dados"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:background="@color/grey"
+                android:focusable="false"
                 android:textColor="@color/white"
-                android:text="temporal"
+                android:text="Lanzar"
                 android:textAlignment="center"
-                android:enabled="false"
+                android:clickable="true"
                 />
         </LinearLayout>
     </FrameLayout>
@@ -123,71 +132,92 @@
             android:layout_width="@dimen/space_images"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:id="@+id/d4"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/image_dice_height"
             android:src="@drawable/d4_sin_fondo"
             android:adjustViewBounds="true"
             android:contentDescription="@string/d4_desc"
+            android:focusable="true"
+            android:clickable="true"
             />
         <Space
             android:layout_width="@dimen/space_images"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:id="@+id/d6"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/image_dice_height"
             android:src="@drawable/d6_sin_fondo"
             android:adjustViewBounds="true"
             android:contentDescription="@string/d6_desc"
+            android:focusable="true"
+            android:clickable="true"
             />
         <Space
             android:layout_width="@dimen/space_images"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:id="@+id/d8"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/image_dice_height"
             android:src="@drawable/d8_sin_fondo"
             android:adjustViewBounds="true"
             android:contentDescription="@string/d8_desc"
+            android:focusable="true"
+            android:clickable="true"
             />
         <Space
             android:layout_width="@dimen/space_images"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:id="@+id/d10"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/image_dice_height"
             android:src="@drawable/d10_sin_fondo"
             android:adjustViewBounds="true"
             android:contentDescription="@string/d10_desc"
+            android:focusable="true"
+            android:clickable="true"
             />
         <Space
             android:layout_width="@dimen/space_images"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:id="@+id/d12"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/image_dice_height"
             android:src="@drawable/d12_sin_fondo"
             android:adjustViewBounds="true"
             android:contentDescription="@string/d12_desc"
+            android:focusable="true"
+            android:clickable="true"
             />
         <Space
             android:layout_width="@dimen/space_images"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:id="@+id/d20"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/image_dice_height"
             android:src="@drawable/d20_sin_fondo"
             android:adjustViewBounds="true"
             android:contentDescription="@string/d20_desc"
+            android:focusable="true"
+            android:clickable="true"
             />
         <Space
             android:layout_width="@dimen/space_images"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:id="@+id/d100"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/image_dice_height"
             android:src="@drawable/d100_sin_fondo"
             android:adjustViewBounds="true"
             android:contentDescription="@string/d100_desc"
+            android:focusable="true"
+            android:clickable="true"
             />
         <Space
             android:layout_width="@dimen/space_images"
