@@ -30,6 +30,18 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/d4_sin_fondo"
+                android:adjustViewBounds="true"/>
+        </LinearLayout>
         
         <LinearLayout
             android:layout_width="wrap_content"
