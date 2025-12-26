@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Opción 1: Limpiar Historial -->
+    <item
+        android:id="@+id/action_limpiar_historial"
+        android:title="Limpiar Historial"
+        app:showAsAction="never"
+    />
+
+    <!-- Opción 2: Cambiar Tema (Claro/Oscuro) -->
+    <item
+        android:id="@+id/action_cambiar_tema"
+        android:title="Cambiar Tema"
+        app:showAsAction="never"
+    />
+
+    <!-- Opción 3: Sonido On/Off -->
+    <!-- Hacemos que se pueda marcar -->
+    <!-- Estado inicial: activado -->
+    <item
+        android:id="@+id/action_sonido"
+        android:title="Sonido"
+        app:showAsAction="never"
+        android:checkable="true"
+        android:checked="true"
+    />
+
+    <!-- Opción 4: Vibración On/Off -->
+    <item
+        android:id="@+id/action_vibracion"
+        android:title="Vibración"
+        app:showAsAction="never"
+        android:checkable="true"
+        android:checked="true"
+    />
 </menu>

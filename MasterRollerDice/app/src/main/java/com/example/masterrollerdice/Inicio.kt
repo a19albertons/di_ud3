@@ -1,7 +1,10 @@
 package com.example.masterrollerdice
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -98,6 +101,11 @@ class Inicio : Fragment() {
         // Listener de operacion (sin sistema de guardado)
 
         lanzador.setOnClickListener {
+            // 1. Comprueba si la vibración está habilitada desde MainActivity
+            if (MainActivity.isVibrationEnabled) {
+                // 2. Llama a la función para hacer vibrar el dispositivo
+                vibrarDispositivo(requireContext())
+            }
             var total = 0
             mostar1.text = "0"
             mostar2.text = "0"
@@ -116,6 +124,7 @@ class Inicio : Fragment() {
                         mostar3.text = listaResultados[1].toString()
                     }
                     Total.text = "Total: ${listaResultados.sum()}"
+                    total = listaResultados.sum()
                 }
 
                 "D6" -> {
@@ -130,6 +139,7 @@ class Inicio : Fragment() {
                         mostar3.text = listaResultados[1].toString()
                     }
                     Total.text = "Total: ${listaResultados.sum()}"
+                    total = listaResultados.sum()
                 }
 
                 "D8" -> {
@@ -144,6 +154,7 @@ class Inicio : Fragment() {
                         mostar3.text = listaResultados[1].toString()
                     }
                     Total.text = "Total: ${listaResultados.sum()}"
+                    total = listaResultados.sum()
                 }
                 "D10" -> {
                     val listaResultados = mutableListOf<Int>()
@@ -157,6 +168,7 @@ class Inicio : Fragment() {
                         mostar3.text = listaResultados[1].toString()
                     }
                     Total.text = "Total: ${listaResultados.sum()}"
+                    total = listaResultados.sum()
                 }
                 "D12" -> {
                     val listaResultados = mutableListOf<Int>()
@@ -170,6 +182,7 @@ class Inicio : Fragment() {
                         mostar3.text = listaResultados[1].toString()
                     }
                     Total.text = "Total: ${listaResultados.sum()}"
+                    total = listaResultados.sum()
                 }
                 "D20" -> {
                     val listaResultados = mutableListOf<Int>()
@@ -183,6 +196,7 @@ class Inicio : Fragment() {
                         mostar3.text = listaResultados[1].toString()
                     }
                     Total.text = "Total: ${listaResultados.sum()}"
+                    total = listaResultados.sum()
                 }
                 "D100" -> {
                     val listaResultados = mutableListOf<Int>()
@@ -196,6 +210,7 @@ class Inicio : Fragment() {
                         mostar3.text = listaResultados[1].toString()
                     }
                     Total.text = "Total: ${listaResultados.sum()}"
+                    total = listaResultados.sum()
                 }
                 else -> {
                     Total.text = "Error"
@@ -205,7 +220,7 @@ class Inicio : Fragment() {
             // Leer el historial actual para contar lanzamientos
             val historialList = leerCSV(requireContext())
             val numLanzamientos = historialList.size + 1 // Siguiente número de lanzamiento
-            val dataAEscribir = "$numLanzamientos,${num_dados}${tipo_dados},$total\n"
+            val dataAEscribir = "$numLanzamientos,${num_dados}${tipo_dados},${total}\n"
             try {
                 // Usa openFileOutput para escribir en el almacenamiento interno de la app.
                 // MODE_APPEND es crucial: añade al final en lugar de sobrescribir.
@@ -273,4 +288,19 @@ class Inicio : Fragment() {
         return view
     }
 
+}
+
+private fun vibrarDispositivo(context: Context) {
+    val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
+    // Comprueba si el dispositivo es Android 8 (Oreo) o superior
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        // Para versiones nuevas, se usa VibrationEffect
+        // VibrationEffect.createOneShot(duración_en_milisegundos, amplitud)
+        // Amplitud: -1 = por defecto, 1-255 = intensidad de la vibración
+        vibrator.vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE))
+    } else {
+        // Para versiones antiguas (obsoleto en API 26)
+        vibrator.vibrate(150) // duración en milisegundos
+    }
 }

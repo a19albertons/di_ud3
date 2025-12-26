@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -41,7 +42,7 @@ class Historial : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // 1. Obtén la lista de datos del CSV
-        val historialData = leerCSV(requireContext())
+        val historialData = leerCSV(requireContext()).toMutableList()
 
         // 2. Obtén la referencia al RecyclerView
         val recyclerView = view.findViewById<RecyclerView>(R.id.historial_recycler_view)
@@ -62,7 +63,7 @@ data class HistorialEntry(
     val total: String
 )
 
-class HistorialAdapter(private val historialList: List<HistorialEntry>) :
+class HistorialAdapter(private var historialList: MutableList<HistorialEntry>) :
     RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
 
     // 1. ViewHolder: Guarda las referencias a las vistas de cada fila
@@ -89,6 +90,11 @@ class HistorialAdapter(private val historialList: List<HistorialEntry>) :
 
     // 4. Devuelve el número total de elementos
     override fun getItemCount() = historialList.size
+
+    fun limpiarDatos() {
+        historialList.clear() // Borra la lista en memoria
+        notifyDataSetChanged() // Avisa al RecyclerView para que se repinte
+    }
 }
 
 fun leerCSV(context: Context): List<HistorialEntry> {
@@ -113,3 +119,13 @@ fun leerCSV(context: Context): List<HistorialEntry> {
     }
     return historialList
 }
+
+
+fun borrarHistorial(context: Context, navController: NavController) {
+
+    context.deleteFile("historial.csv")
+    navController.navigate(R.id.inicio)
+
+
+}
+
