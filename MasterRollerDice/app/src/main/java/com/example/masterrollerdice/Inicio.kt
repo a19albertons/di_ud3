@@ -30,18 +30,24 @@ class Inicio : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_inicio, container, false)
 
         // Por defecto
-        val dadosPorDefecto = 1
+        val EleccionDadosPorDefecto = 1
         val tipoPorDefecto = "D4"
         val Total = view.findViewById<TextView>(R.id.total_text)
-        Total.text = Total.text.toString()+" 0"
 
-        // Otras variables y valores por defecto más usados
-        val num_dados= view.findViewById<EditText>(R.id.num_dados)
-        val tipo_dados = view.findViewById<EditText>(R.id.tipo_dados)
-        tipo_dados.setText(tipoPorDefecto)
+        // valores en origen
+        var num_dados = EleccionDadosPorDefecto
+        var tipo_dados = tipoPorDefecto
+
+        // El tipo de dado ahora se guarda como un String
         val lanzador= view.findViewById<EditText>(R.id.lanzar_dados)
         lanzador.keyListener = null // Hacer que el EditText no sea editable
-        num_dados.setText(dadosPorDefecto.toString())
+        val un_dado = view.findViewById<EditText>(R.id.num_dados_elegidos1)
+        un_dado.keyListener = null // Hacer que el EditText no sea editable
+        val dos_dado = view.findViewById<EditText>(R.id.num_dados_elegidos2)
+        dos_dado.keyListener = null // Hacer que el EditText no sea editable
+
+
+
 
         // imagenes de los distintos cubos
         val d4_img = view.findViewById<View>(R.id.d4)
@@ -52,6 +58,13 @@ class Inicio : Fragment() {
         val d20_img = view.findViewById<View>(R.id.d20)
         val d100_img = view.findViewById<View>(R.id.d100)
 
+        // Mostrar texto sobre cuadro
+        val mostar1 = view.findViewById<TextView>(R.id.mostrar1)
+        val mostar2 = view.findViewById<TextView>(R.id.mostrar2)
+        val mostar3 = view.findViewById<TextView>(R.id.mostrar3)
+
+
+
         // Elección central y fotos
         val soloUnDado = view.findViewById<View>(R.id.solo_un_dado)
         val variosDados = view.findViewById<View>(R.id.dos_dado)
@@ -60,92 +73,129 @@ class Inicio : Fragment() {
         val fotoCentral2= view.findViewById<ImageView>(R.id.foto_central2)
         val fotoCentral3= view.findViewById<ImageView>(R.id.foto_central3)
 
+        // Listener de uno o dos dados
+        un_dado.setOnClickListener {
+            num_dados = 1
+            soloUnDado.visibility = View.VISIBLE
+            variosDados.visibility = View.INVISIBLE
+            mostar1.text = "0"
+            mostar2.text = "0"
+            mostar3.text = "0"
+            Total.text = "Total: 0"
+        }
 
+        dos_dado.setOnClickListener {
+            num_dados = 2
+            soloUnDado.visibility = View.INVISIBLE
+            variosDados.visibility = View.VISIBLE
+            mostar1.text = "0"
+            mostar2.text = "0"
+            mostar3.text = "0"
+            Total.text = "Total: 0"
+        }
 
 
         // Listener de operacion (sin sistema de guardado)
 
-        // Cortesia de la IA para cuando modificas un texto
-        num_dados.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) {
-                try {
-                    val value = s?.toString()?.toInt() ?: 0
-                    when {
-                        value == 0 -> {
-                            soloUnDado.visibility = View.INVISIBLE
-                            variosDados.visibility = View.INVISIBLE
-                        }
-
-                        value == 1 -> {
-                            soloUnDado.visibility = View.VISIBLE
-                            variosDados.visibility = View.INVISIBLE
-                        }
-
-                        else -> {
-                            soloUnDado.visibility = View.INVISIBLE
-                            variosDados.visibility = View.VISIBLE
-                        }
-                    }
-                } catch (e: NumberFormatException) {
-                    soloUnDado.visibility = View.INVISIBLE
-                    variosDados.visibility = View.INVISIBLE
-                }
-            }
-        })
         lanzador.setOnClickListener {
-            try {
-                num_dados.text.toString().toInt()
-            }
-            catch (e: NumberFormatException) {
-                num_dados.setText(dadosPorDefecto.toString())
-            }
             var total = 0
-            when (tipo_dados.text.toString()) {
+            mostar1.text = "0"
+            mostar2.text = "0"
+            mostar3.text = "0"
+
+            when (tipo_dados) {
                 "D4" -> {
-                    for (i in 1..num_dados.text.toString().toInt()) {
-                        total += (1..4).random()
+                    val listaResultados = mutableListOf<Int>()
+                    for (i in 1..num_dados) {
+                        listaResultados.add((1..4).random())
                     }
-                    Total.text = "Total: $total"
+                    if (num_dados == 1) {
+                        mostar1.text = listaResultados[0].toString()
+                    } else if (num_dados == 2) {
+                        mostar2.text = listaResultados[0].toString()
+                        mostar3.text = listaResultados[1].toString()
+                    }
+                    Total.text = "Total: ${listaResultados.sum()}"
                 }
 
                 "D6" -> {
-                    for (i in 1..num_dados.text.toString().toInt()) {
-                        total += (1..6).random()
+                    val listaResultados = mutableListOf<Int>()
+                    for (i in 1..num_dados) {
+                        listaResultados.add((1..6).random())
                     }
-                    Total.text = "Total: $total"
+                    if (num_dados == 1) {
+                        mostar1.text = listaResultados[0].toString()
+                    } else if (num_dados == 2) {
+                        mostar2.text = listaResultados[0].toString()
+                        mostar3.text = listaResultados[1].toString()
+                    }
+                    Total.text = "Total: ${listaResultados.sum()}"
                 }
 
                 "D8" -> {
-                    for (i in 1..num_dados.text.toString().toInt()) {
-                        total += (1..8).random()
+                    val listaResultados = mutableListOf<Int>()
+                    for (i in 1..num_dados) {
+                        listaResultados.add((1..8).random())
                     }
-                    Total.text = "Total: $total"
+                    if (num_dados == 1) {
+                        mostar1.text = listaResultados[0].toString()
+                    } else if (num_dados == 2) {
+                        mostar2.text = listaResultados[0].toString()
+                        mostar3.text = listaResultados[1].toString()
+                    }
+                    Total.text = "Total: ${listaResultados.sum()}"
                 }
                 "D10" -> {
-                    for (i in 1..num_dados.text.toString().toInt()) {
-                        total += (1..10).random()
+                    val listaResultados = mutableListOf<Int>()
+                    for (i in 1..num_dados) {
+                        listaResultados.add((1..10).random())
                     }
-                    Total.text = "Total: $total"
+                    if (num_dados == 1) {
+                        mostar1.text = listaResultados[0].toString()
+                    } else if (num_dados == 2) {
+                        mostar2.text = listaResultados[0].toString()
+                        mostar3.text = listaResultados[1].toString()
+                    }
+                    Total.text = "Total: ${listaResultados.sum()}"
                 }
                 "D12" -> {
-                    for (i in 1..num_dados.text.toString().toInt()) {
-                        total += (1..12).random()
+                    val listaResultados = mutableListOf<Int>()
+                    for (i in 1..num_dados) {
+                        listaResultados.add((1..12).random())
                     }
-                    Total.text = "Total: $total"
+                    if (num_dados == 1) {
+                        mostar1.text = listaResultados[0].toString()
+                    } else if (num_dados == 2) {
+                        mostar2.text = listaResultados[0].toString()
+                        mostar3.text = listaResultados[1].toString()
+                    }
+                    Total.text = "Total: ${listaResultados.sum()}"
                 }
                 "D20" -> {
-                    for (i in 1..num_dados.text.toString().toInt()) {
-                        total += (1..20).random()
+                    val listaResultados = mutableListOf<Int>()
+                    for (i in 1..num_dados) {
+                        listaResultados.add((1..20).random())
                     }
-                    Total.text = "Total: $total"
+                    if (num_dados == 1) {
+                        mostar1.text = listaResultados[0].toString()
+                    } else if (num_dados == 2) {
+                        mostar2.text = listaResultados[0].toString()
+                        mostar3.text = listaResultados[1].toString()
+                    }
+                    Total.text = "Total: ${listaResultados.sum()}"
                 }
                 "D100" -> {
-                    for (i in 1..num_dados.text.toString().toInt()) {
-                        total += (1..100).random()
+                    val listaResultados = mutableListOf<Int>()
+                    for (i in 1..num_dados) {
+                        listaResultados.add((1..100).random())
                     }
-                    Total.text = "Total: $total"
+                    if (num_dados == 1) {
+                        mostar1.text = listaResultados[0].toString()
+                    } else if (num_dados == 2) {
+                        mostar2.text = listaResultados[0].toString()
+                        mostar3.text = listaResultados[1].toString()
+                    }
+                    Total.text = "Total: ${listaResultados.sum()}"
                 }
                 else -> {
                     Total.text = "Error"
@@ -155,7 +205,7 @@ class Inicio : Fragment() {
             // Leer el historial actual para contar lanzamientos
             val historialList = leerCSV(requireContext())
             val numLanzamientos = historialList.size + 1 // Siguiente número de lanzamiento
-            val dataAEscribir = "$numLanzamientos,${tipo_dados.text},$total\n"
+            val dataAEscribir = "$numLanzamientos,${num_dados}${tipo_dados},$total\n"
             try {
                 // Usa openFileOutput para escribir en el almacenamiento interno de la app.
                 // MODE_APPEND es crucial: añade al final en lugar de sobrescribir.
@@ -174,43 +224,43 @@ class Inicio : Fragment() {
 
         // Listener de elegir dado
         d4_img.setOnClickListener {
-            tipo_dados.setText("D4")
+            tipo_dados = "D4"
             fotoCentral1.setImageResource(R.drawable.d4_sin_fondo)
             fotoCentral2.setImageResource(R.drawable.d4_sin_fondo)
             fotoCentral3.setImageResource(R.drawable.d4_sin_fondo)
         }
         d6_img.setOnClickListener {
-            tipo_dados.setText("D6")
+            tipo_dados = "D6"
             fotoCentral1.setImageResource(R.drawable.d6_sin_fondo)
             fotoCentral2.setImageResource(R.drawable.d6_sin_fondo)
             fotoCentral3.setImageResource(R.drawable.d6_sin_fondo)
         }
         d8_img.setOnClickListener {
-            tipo_dados.setText("D8")
+            tipo_dados = "D8"
             fotoCentral1.setImageResource(R.drawable.d8_sin_fondo)
             fotoCentral2.setImageResource(R.drawable.d8_sin_fondo)
             fotoCentral3.setImageResource(R.drawable.d8_sin_fondo)
         }
         d10_img.setOnClickListener {
-            tipo_dados.setText("D10")
+            tipo_dados = "D10"
             fotoCentral1.setImageResource(R.drawable.d10_sin_fondo)
             fotoCentral2.setImageResource(R.drawable.d10_sin_fondo)
             fotoCentral3.setImageResource(R.drawable.d10_sin_fondo)
         }
         d12_img.setOnClickListener {
-            tipo_dados.setText("D12")
+            tipo_dados = "D12"
             fotoCentral1.setImageResource(R.drawable.d12_sin_fondo)
             fotoCentral2.setImageResource(R.drawable.d12_sin_fondo)
             fotoCentral3.setImageResource(R.drawable.d12_sin_fondo)
         }
         d20_img.setOnClickListener {
-            tipo_dados.setText("D20")
+            tipo_dados = "D20"
             fotoCentral1.setImageResource(R.drawable.d20_sin_fondo)
             fotoCentral2.setImageResource(R.drawable.d20_sin_fondo)
             fotoCentral3.setImageResource(R.drawable.d20_sin_fondo)
         }
         d100_img.setOnClickListener {
-            tipo_dados.setText("D100")
+            tipo_dados = "D100"
             fotoCentral1.setImageResource(R.drawable.d100_sin_fondo)
             fotoCentral2.setImageResource(R.drawable.d100_sin_fondo)
             fotoCentral3.setImageResource(R.drawable.d100_sin_fondo)

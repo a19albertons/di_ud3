@@ -5,10 +5,15 @@
         android:id="@+id/inicio"
         android:title="Inicio"
         app:showAsAction="always"
+        android:icon="@drawable/inicio"
+        android:color="@color/white"
+
         />
     <item
         android:id="@+id/historial"
         android:title="Historial"
         app:showAsAction="always"
+        android:icon="@drawable/historial"
+        android:color="@color/white"
         />
 </menu>

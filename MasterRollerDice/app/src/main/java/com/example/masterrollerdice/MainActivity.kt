@@ -35,19 +35,10 @@ class MainActivity : AppCompatActivity() {
         Log.d("DeviceMetrics", "Mi Smallest Width (sw) es: ${smallestWidth}dp")
 
         // Boton historial
-        val botonHistorial= findViewById<Button>(R.id.historial_boton)
-        val botonInicio = findViewById<Button>(R.id.inicio_boton)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
 
-        // Logica boton historial
-        botonHistorial.setOnClickListener {
-            val navController = navHostFragment.navController
-            navController.navigate(R.id.historial)
-        }
-        // Logica boton inicio
-        botonInicio.setOnClickListener {
-            val navController = navHostFragment.navController
-            navController.navigate(R.id.inicio)
-        }
+        val bottmNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottmNav.setupWithNavController(navHostFragment.navController)
+
     }
 }

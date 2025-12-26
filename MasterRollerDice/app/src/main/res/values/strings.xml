@@ -3,7 +3,7 @@
     <string name="app_name">MasterRollerDice</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="total_label">Total:</string>
+    <string name="total_label">Total: 0</string>
 
     <!-- Content descriptions for dice images -->
     <string name="d4_desc">D4 die</string>

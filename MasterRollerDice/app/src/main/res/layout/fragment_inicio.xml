@@ -31,7 +31,7 @@
         android:layout_weight="1"
         android:background="@color/white">
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/solo_un_dado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,14 +39,23 @@
             android:layout_marginTop="@dimen/margin_top_large"
             android:visibility="visible"
             >
-
             <ImageView
                 android:id="@+id/foto_central1"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_large"
                 android:src="@drawable/d4_sin_fondo"
                 android:adjustViewBounds="true"/>
-        </LinearLayout>
+            <TextView
+                android:id="@+id/mostrar1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="0"
+                android:background="@color/black"
+                android:textColor="@color/white"
+                />
+        </FrameLayout>
         <LinearLayout
             android:id="@+id/dos_dado"
             android:layout_width="wrap_content"
@@ -56,21 +65,56 @@
             android:visibility="invisible"
             >
 
-            <ImageView
-                android:id="@+id/foto_central2"
+            <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_large"
-                android:src="@drawable/d4_sin_fondo"
-                android:adjustViewBounds="true"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:visibility="visible"
+                >
+                <ImageView
+                    android:id="@+id/foto_central2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_large"
+                    android:src="@drawable/d4_sin_fondo"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:id="@+id/mostrar2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="0"
+                    android:background="@color/black"
+                    android:textColor="@color/white"
+                    />
+            </FrameLayout>
             <Space
                 android:layout_width="@dimen/image_dice_height"
                 android:layout_height="wrap_content"/>
-            <ImageView
-                android:id="@+id/foto_central3"
+            <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_large"
-                android:src="@drawable/d4_sin_fondo"
-                android:adjustViewBounds="true"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:visibility="visible"
+                >
+                <ImageView
+                    android:id="@+id/foto_central3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_large"
+                    android:src="@drawable/d4_sin_fondo"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:id="@+id/mostrar3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="0"
+                    android:background="@color/black"
+                    android:textColor="@color/white"
+                    />
+            </FrameLayout>
+
         </LinearLayout>
         
         <LinearLayout
@@ -80,32 +124,19 @@
             android:layout_marginBottom="@dimen/space_images"
             >
             <EditText
-                android:id="@+id/num_dados"
+                android:id="@+id/num_dados_elegidos1"
                 android:layout_width="@dimen/width_medium"
                 android:layout_height="@dimen/height_medium"
                 android:background="@color/grey"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:text=""
-                android:inputType="number"
-                />
-            <Space
-                android:layout_width="@dimen/width_small"
-                android:layout_height="match_parent"/>
-            <EditText
-                android:id="@+id/tipo_dados"
-                android:layout_width="@dimen/width_medium"
-                android:layout_height="@dimen/height_medium"
-                android:background="@color/grey"
-                android:text=""
-                android:textAlignment="center"
-                android:enabled="false"
-                android:textColor="@color/white"
-                />
-            <Space
-                android:layout_width="@dimen/width_small"
-                android:layout_height="match_parent"/>
+                android:text="1"
+                android:focusable="false"
 
+                />
+            <Space
+                android:layout_width="@dimen/width_small"
+                android:layout_height="match_parent"/>
             <EditText
                 android:id="@+id/lanzar_dados"
                 android:layout_width="@dimen/width_medium"
@@ -117,6 +148,21 @@
                 android:textAlignment="center"
                 android:clickable="true"
                 />
+            <Space
+                android:layout_width="@dimen/width_small"
+                android:layout_height="match_parent"/>
+            <EditText
+                android:id="@+id/num_dados_elegidos2"
+                android:layout_width="@dimen/width_medium"
+                android:layout_height="@dimen/height_medium"
+                android:background="@color/grey"
+                android:text="2"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:focusable="false"
+                />
+
+
         </LinearLayout>
     </FrameLayout>
 
